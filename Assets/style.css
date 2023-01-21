@@ -4,10 +4,11 @@
 
 body {
   width: 100%;
-  margin-top: 5em;
+  margin-top: 15px;
 }
 
 header {
+  margin-bottom: 15px;
   display: flex;
   justify-content: flex-end;
   padding-right: 50px;
@@ -17,7 +18,7 @@ header {
 .high-scores {
   width: 100%;
   padding-left: 12px;
-  color: #786699;
+  color: #4d3874;
   font-weight: bolder;
 }
 
@@ -43,13 +44,16 @@ main {
   justify-content: center;
 }
 
+
 .quiz-questions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
+
 p {
+
   text-align: center;
   font-weight: bold;
   font-size: 20px;
@@ -58,15 +62,45 @@ p {
   margin-bottom: 40px;
 }
 
+
+
 button {
   padding: 5px;
+  margin: 2px;
   width: fit-content;
   font-size: 20px;
   color: white;
-  background-color: #786699;
+  background-color: #4d3874;
   border-radius: 6px;
 }
+
 
 button:hover {
     opacity: 70%;
 }
+
+.theQuestion {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  height: fit-content;
+  width: 600px;
+}
+
+.theAnswers {
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  width: 600px;
+  margin-top: 15px;
+  margin-left: 10em;
+  margin-right: 10em;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+

@@ -11,31 +11,64 @@ const highScore = "";
 const myInitials = "";
 let timer;
 let timerCount = 75;
-let question1 = "Commonly used data types do NOT include: "
+let questions = [
+  "Commonly used data types do NOT include______ ",
+  "The condition in an if-else statement is enclosed with______",
+  "Arrays in JavaScript can be used to store_______",
+];
 
-function startGame () {
-startButton.disabled = true;
-startTimer();
-poseQuestion ();
+function startGame() {
+  startButton.disabled = true;
+  startTimer();
+  poseQuestion();
 }
 
+function poseQuestion() {
+  questionEl.setAttribute(
+    "style",
+    "font-size:35px; text-align:left; font-weight:bold;"
+  );
+  questionEl.innerHTML = "";
 
-function poseQuestion (){
+  const theQuestion = document.createElement("div");
+  questionEl.append(theQuestion);
+  theQuestion.className = "theQuestion";
+  theQuestion.textContent = "The condition in an if-else statement is enclosed with______";
 
-    questionEl.innerHTML = question1;
+  const answers = document.createElement("div");
+  questionEl.append(answers);
+  answers.className = "theAnswers";
+
+  const answerOne = document.createElement("button");
+  answers.append(answerOne);
+  answerOne.innerText = "Answer1";
+
+
+  const answerTwo = document.createElement("button");
+  answers.append(answerTwo);
+  answerTwo.innerText = "Answer2";
+
+
+  const answerThree = document.createElement("button");
+  answers.append(answerThree);
+  answerThree.innerText = "Answer3";
+
+
+  const answerFour = document.createElement("button");
+  answers.append(answerFour);
+  answerFour.innerText = "Answer4";
 }
 
 function startTimer() {
-    // Sets timer
-    timer = setInterval(function() {
-      timerCount--;
-      timerEl.textContent = timerCount;
-      if (timerCount === 0) {
-        // Clears interval
-        clearInterval(timer);
-        loseGame();
-      }
-    }, 1000);
-  }
+  timer = setInterval(function () {
+    timerCount--;
+    timerEl.textContent = timerCount;
 
-  startButton.addEventListener("click", startGame);
+    if (timerCount === 0) {
+      clearInterval(timer);
+      loseGame();
+    }
+  }, 1000);
+}
+
+startButton.addEventListener("click", startGame);
