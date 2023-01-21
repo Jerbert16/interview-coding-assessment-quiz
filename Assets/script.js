@@ -5,11 +5,25 @@
 
 const timerEl = document.querySelector(".timer-text");
 const startButton = document.querySelector(".start-button");
+const questionEl = document.querySelector(".quiz-area");
 
 const highScore = "";
 const myInitials = "";
 let timer;
 let timerCount = 75;
+let question1 = "Commonly used data types do NOT include: "
+
+function startGame () {
+startButton.disabled = true;
+startTimer();
+poseQuestion ();
+}
+
+
+function poseQuestion (){
+
+    questionEl.innerHTML = question1;
+}
 
 function startTimer() {
     // Sets timer
@@ -24,4 +38,4 @@ function startTimer() {
     }, 1000);
   }
 
-  startButton.addEventListener("click", startTimer);
+  startButton.addEventListener("click", startGame);
