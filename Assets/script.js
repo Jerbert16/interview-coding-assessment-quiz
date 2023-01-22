@@ -82,6 +82,65 @@ function poseQuestion1() {
   answerFour.innerText = "4. " + question1Answers[3];
 
   const button1 = document.querySelector(".firstAnswer");
+  button1.addEventListener("click", wrongAnswer);
+
+  const button2 = document.querySelector(".secondAnswer");
+  button2.addEventListener("click", wrongAnswer);
+
+  const button3 = document.querySelector(".thirdAnswer");
+  button3.addEventListener("click", corerctAnswer);
+
+  const button4 = document.querySelector(".fourthAnswer");
+  button4.addEventListener("click", wrongAnswer);  
+
+  function wrongAnswer () {
+
+timerCount = (timerCount - 10);
+poseQuestion2();
+  }
+}
+
+function corerctAnswer () {
+  poseQuestion2 ();
+}
+
+function poseQuestion2() {
+  questionEl.setAttribute(
+    "style",
+    "font-size:35px; text-align:left; font-weight:bold;"
+  );
+  questionEl.innerHTML = "";
+
+  const theQuestion = document.createElement("div");
+  questionEl.append(theQuestion);
+  theQuestion.className = "theQuestion";
+  theQuestion.textContent = questions[1];
+
+  const answers = document.createElement("div");
+  questionEl.append(answers);
+  answers.className = "theAnswers";
+
+  const answerOne = document.createElement("button");
+  answers.append(answerOne);
+  answerOne.className = "firstAnswer";
+  answerOne.innerText = "1. " + question2Answers[0];
+
+  const answerTwo = document.createElement("button");
+  answers.append(answerTwo);
+  answerTwo.className = "secondAnswer";
+  answerTwo.innerText = "2. " + question2Answers[1];
+
+  const answerThree = document.createElement("button");
+  answers.append(answerThree);
+  answerThree.className = "thirdAnswer";
+  answerThree.innerText = "3. " + question2Answers[2];
+
+  const answerFour = document.createElement("button");
+  answers.append(answerFour);
+  answerFour.className = "fourthAnswer";
+  answerFour.innerText = "4. " + question2Answers[3];
+
+  const button1 = document.querySelector(".firstAnswer");
   button1.addEventListener("click", function () {
     alert("try again!");
   });
@@ -92,7 +151,7 @@ function poseQuestion1() {
   });
 
   const button3 = document.querySelector(".thirdAnswer");
-  button3.addEventListener("click", poseQuestion2)
+  button3.addEventListener("click", poseQuestion3);
 
   const button4 = document.querySelector(".fourthAnswer");
   button4.addEventListener("click", function () {
@@ -100,13 +159,169 @@ function poseQuestion1() {
   });
 }
 
-function poseQuestion2 (){
+function poseQuestion3() {
+  questionEl.setAttribute(
+    "style",
+    "font-size:35px; text-align:left; font-weight:bold;"
+  );
   questionEl.innerHTML = "";
 
   const theQuestion = document.createElement("div");
   questionEl.append(theQuestion);
   theQuestion.className = "theQuestion";
-  theQuestion.textContent = questions[1];
+  theQuestion.textContent = questions[2];
+
+  const answers = document.createElement("div");
+  questionEl.append(answers);
+  answers.className = "theAnswers";
+
+  const answerOne = document.createElement("button");
+  answers.append(answerOne);
+  answerOne.className = "firstAnswer";
+  answerOne.innerText = "1. " + question3Answers[0];
+
+  const answerTwo = document.createElement("button");
+  answers.append(answerTwo);
+  answerTwo.className = "secondAnswer";
+  answerTwo.innerText = "2. " + question3Answers[1];
+
+  const answerThree = document.createElement("button");
+  answers.append(answerThree);
+  answerThree.className = "thirdAnswer";
+  answerThree.innerText = "3. " + question3Answers[2];
+
+  const answerFour = document.createElement("button");
+  answers.append(answerFour);
+  answerFour.className = "fourthAnswer";
+  answerFour.innerText = "4. " + question3Answers[3];
+
+  const button1 = document.querySelector(".firstAnswer");
+  button1.addEventListener("click", function () {
+    alert("try again!");
+  });
+
+  const button2 = document.querySelector(".secondAnswer");
+  button2.addEventListener("click", function () {
+    alert("try again!");
+  });
+
+  const button3 = document.querySelector(".thirdAnswer");
+  button3.addEventListener("click", function () {
+    alert("try again!")});
+
+  const button4 = document.querySelector(".fourthAnswer");
+    button4.addEventListener("click", poseQuestion4)
+  ;
+}
+
+function poseQuestion4() {
+  questionEl.setAttribute(
+    "style",
+    "font-size:35px; text-align:left; font-weight:bold;"
+  );
+  questionEl.innerHTML = "";
+
+  const theQuestion = document.createElement("div");
+  questionEl.append(theQuestion);
+  theQuestion.className = "theQuestion";
+  theQuestion.textContent = questions[3];
+
+  const answers = document.createElement("div");
+  questionEl.append(answers);
+  answers.className = "theAnswers";
+
+  const answerOne = document.createElement("button");
+  answers.append(answerOne);
+  answerOne.className = "firstAnswer";
+  answerOne.innerText = "1. " + question4Answers[0];
+
+  const answerTwo = document.createElement("button");
+  answers.append(answerTwo);
+  answerTwo.className = "secondAnswer";
+  answerTwo.innerText = "2. " + question4Answers[1];
+
+  const answerThree = document.createElement("button");
+  answers.append(answerThree);
+  answerThree.className = "thirdAnswer";
+  answerThree.innerText = "3. " + question4Answers[2];
+
+  const answerFour = document.createElement("button");
+  answers.append(answerFour);
+  answerFour.className = "fourthAnswer";
+  answerFour.innerText = "4. " + question4Answers[3];
+
+  const button1 = document.querySelector(".firstAnswer");
+  button1.addEventListener("click", function () {
+    alert("try again!");
+  });
+
+  const button2 = document.querySelector(".secondAnswer");
+  button2.addEventListener("click", function () {
+    alert("try again!");
+  });
+
+  const button3 = document.querySelector(".thirdAnswer");
+  button3.addEventListener("click", function () {
+    alert("try again!");
+  });
+
+  const button4 = document.querySelector(".fourthAnswer");
+  button4.addEventListener("click", poseQuestion5);
+}
+
+function poseQuestion5() {
+  questionEl.setAttribute(
+    "style",
+    "font-size:35px; text-align:left; font-weight:bold;"
+  );
+  questionEl.innerHTML = "";
+
+  const theQuestion = document.createElement("div");
+  questionEl.append(theQuestion);
+  theQuestion.className = "theQuestion";
+  theQuestion.textContent = questions[4];
+
+  const answers = document.createElement("div");
+  questionEl.append(answers);
+  answers.className = "theAnswers";
+
+  const answerOne = document.createElement("button");
+  answers.append(answerOne);
+  answerOne.className = "firstAnswer";
+  answerOne.innerText = "1. " + question5Answers[0];
+
+  const answerTwo = document.createElement("button");
+  answers.append(answerTwo);
+  answerTwo.className = "secondAnswer";
+  answerTwo.innerText = "2. " + question5Answers[1];
+
+  const answerThree = document.createElement("button");
+  answers.append(answerThree);
+  answerThree.className = "thirdAnswer";
+  answerThree.innerText = "3. " + question5Answers[2];
+
+  const answerFour = document.createElement("button");
+  answers.append(answerFour);
+  answerFour.className = "fourthAnswer";
+  answerFour.innerText = "4. " + question5Answers[3];
+
+  const button1 = document.querySelector(".firstAnswer");
+  button1.addEventListener("click", function () {
+    alert("try again!");
+  });
+
+  const button2 = document.querySelector(".secondAnswer");
+  button2.addEventListener("click", function () {
+    alert("try again!");
+  });
+
+  const button3 = document.querySelector(".thirdAnswer");
+  button3.addEventListener("click", function () {
+    alert("try again!");
+  })
+
+  const button4 = document.querySelector(".fourthAnswer");
+  button4.addEventListener("click", poseQuestion1);
 }
 
 function startTimer() {
@@ -122,3 +337,4 @@ function startTimer() {
 }
 
 startButton.addEventListener("click", startGame);
+
