@@ -7,8 +7,8 @@ const timerEl = document.querySelector(".timer-text");
 const startButton = document.querySelector(".start-button");
 const questionEl = document.querySelector(".quiz-area");
 
-const highScore = "";
-const myInitials = "";
+let highScore = 0;
+let myInitials = "";
 let timer;
 let timerCount = 75;
 let questions = [
@@ -45,11 +45,11 @@ function startGame() {
   poseQuestion1();
 }
 
+
+// Code for question 1 --------------------------------------------------------------------
+
 function poseQuestion1() {
-  questionEl.setAttribute(
-    "style",
-    "font-size:35px; text-align:left; font-weight:bold;"
-  );
+  questionEl.setAttribute("style", "font-size:35px; font-weight:bold;");
   questionEl.innerHTML = "";
 
   const theQuestion = document.createElement("div");
@@ -88,27 +88,37 @@ function poseQuestion1() {
   button2.addEventListener("click", wrongAnswer);
 
   const button3 = document.querySelector(".thirdAnswer");
-  button3.addEventListener("click", corerctAnswer);
+  button3.addEventListener("click", correctAnswer);
 
   const button4 = document.querySelector(".fourthAnswer");
-  button4.addEventListener("click", wrongAnswer);  
+  button4.addEventListener("click", wrongAnswer);
 
-  function wrongAnswer () {
+  function wrongAnswer() {
+    let wrongMsg = document.querySelector(".theAnswers");
+    wrongMsg.setAttribute("style", "font-size:120px; color:red;");
+    wrongMsg.innerText = "Wrong!";
+    timerCount = timerCount - 10;
+    setTimeout(() => {
+      poseQuestion2();
+    }, 550);
+  }
 
-timerCount = (timerCount - 10);
-poseQuestion2();
+  function correctAnswer() {
+    let correctMsg = document.querySelector(".theAnswers");
+    correctMsg.setAttribute("style", "font-size:120px; color:green;");
+    correctMsg.innerText = "Correct!";
+    setTimeout(() => {
+      poseQuestion2();
+    }, 550);
   }
 }
 
-function corerctAnswer () {
-  poseQuestion2 ();
-}
+console.log(highScore)
+
+// Code for question 2 --------------------------------------------------------------------
 
 function poseQuestion2() {
-  questionEl.setAttribute(
-    "style",
-    "font-size:35px; text-align:left; font-weight:bold;"
-  );
+  questionEl.setAttribute("style", "font-size:35px; font-weight:bold;");
   questionEl.innerHTML = "";
 
   const theQuestion = document.createElement("div");
@@ -141,29 +151,41 @@ function poseQuestion2() {
   answerFour.innerText = "4. " + question2Answers[3];
 
   const button1 = document.querySelector(".firstAnswer");
-  button1.addEventListener("click", function () {
-    alert("try again!");
-  });
+  button1.addEventListener("click", wrongAnswer);
 
   const button2 = document.querySelector(".secondAnswer");
-  button2.addEventListener("click", function () {
-    alert("try again!");
-  });
+  button2.addEventListener("click", wrongAnswer);
 
   const button3 = document.querySelector(".thirdAnswer");
-  button3.addEventListener("click", poseQuestion3);
+  button3.addEventListener("click", correctAnswer);
 
   const button4 = document.querySelector(".fourthAnswer");
-  button4.addEventListener("click", function () {
-    alert("try again!");
-  });
+  button4.addEventListener("click", wrongAnswer);
+
+  function wrongAnswer() {
+    let wrongMsg = document.querySelector(".theAnswers");
+    wrongMsg.setAttribute("style", "font-size:120px; color:red;");
+    wrongMsg.innerText = "Wrong!";
+    timerCount = timerCount - 10;
+    setTimeout(() => {
+      poseQuestion3();
+    }, 550);
+  }
+
+  function correctAnswer() {
+    let correctMsg = document.querySelector(".theAnswers");
+    correctMsg.setAttribute("style", "font-size:120px; color:green;");
+    correctMsg.innerText = "Correct!";
+    setTimeout(() => {
+      poseQuestion3();
+    }, 550);
+  }
 }
 
+// Code for question 3 --------------------------------------------------------------------
+
 function poseQuestion3() {
-  questionEl.setAttribute(
-    "style",
-    "font-size:35px; text-align:left; font-weight:bold;"
-  );
+  questionEl.setAttribute("style", "font-size:35px; font-weight:bold;");
   questionEl.innerHTML = "";
 
   const theQuestion = document.createElement("div");
@@ -196,29 +218,41 @@ function poseQuestion3() {
   answerFour.innerText = "4. " + question3Answers[3];
 
   const button1 = document.querySelector(".firstAnswer");
-  button1.addEventListener("click", function () {
-    alert("try again!");
-  });
+  button1.addEventListener("click", wrongAnswer);
 
   const button2 = document.querySelector(".secondAnswer");
-  button2.addEventListener("click", function () {
-    alert("try again!");
-  });
+  button2.addEventListener("click", wrongAnswer);
 
   const button3 = document.querySelector(".thirdAnswer");
-  button3.addEventListener("click", function () {
-    alert("try again!")});
+  button3.addEventListener("click", wrongAnswer);
 
   const button4 = document.querySelector(".fourthAnswer");
-    button4.addEventListener("click", poseQuestion4)
-  ;
+  button4.addEventListener("click", correctAnswer);
+
+  function wrongAnswer() {
+    let wrongMsg = document.querySelector(".theAnswers");
+    wrongMsg.setAttribute("style", "font-size:120px; color:red;");
+    wrongMsg.innerText = "Wrong!";
+    timerCount = timerCount - 10;
+    setTimeout(() => {
+      poseQuestion4();
+    }, 550);
+  }
+
+  function correctAnswer() {
+    let correctMsg = document.querySelector(".theAnswers");
+    correctMsg.setAttribute("style", "font-size:120px; color:green;");
+    correctMsg.innerText = "Correct!";
+    setTimeout(() => {
+      poseQuestion4();
+    }, 550);
+  }
 }
 
+// Code for question 4 --------------------------------------------------------------------
+
 function poseQuestion4() {
-  questionEl.setAttribute(
-    "style",
-    "font-size:35px; text-align:left; font-weight:bold;"
-  );
+  questionEl.setAttribute("style", "font-size:35px; font-weight:bold;");
   questionEl.innerHTML = "";
 
   const theQuestion = document.createElement("div");
@@ -251,29 +285,41 @@ function poseQuestion4() {
   answerFour.innerText = "4. " + question4Answers[3];
 
   const button1 = document.querySelector(".firstAnswer");
-  button1.addEventListener("click", function () {
-    alert("try again!");
-  });
+  button1.addEventListener("click", wrongAnswer);
 
   const button2 = document.querySelector(".secondAnswer");
-  button2.addEventListener("click", function () {
-    alert("try again!");
-  });
+  button2.addEventListener("click", wrongAnswer);
 
   const button3 = document.querySelector(".thirdAnswer");
-  button3.addEventListener("click", function () {
-    alert("try again!");
-  });
+  button3.addEventListener("click", wrongAnswer);
 
   const button4 = document.querySelector(".fourthAnswer");
-  button4.addEventListener("click", poseQuestion5);
+  button4.addEventListener("click", correctAnswer);
+
+  function wrongAnswer() {
+    let wrongMsg = document.querySelector(".theAnswers");
+    wrongMsg.setAttribute("style", "font-size:120px; color:red;");
+    wrongMsg.innerText = "Wrong!";
+    timerCount = timerCount - 10;
+    setTimeout(() => {
+      poseQuestion5();
+    }, 550);
+  }
+
+  function correctAnswer() {
+    let correctMsg = document.querySelector(".theAnswers");
+    correctMsg.setAttribute("style", "font-size:120px; color:green;");
+    correctMsg.innerText = "Correct!";
+    setTimeout(() => {
+      poseQuestion5();
+    }, 550);
+  }
 }
 
+// Code for question 5 --------------------------------------------------------------------
+
 function poseQuestion5() {
-  questionEl.setAttribute(
-    "style",
-    "font-size:35px; text-align:left; font-weight:bold;"
-  );
+  questionEl.setAttribute("style", "font-size:35px; font-weight:bold;");
   questionEl.innerHTML = "";
 
   const theQuestion = document.createElement("div");
@@ -306,22 +352,47 @@ function poseQuestion5() {
   answerFour.innerText = "4. " + question5Answers[3];
 
   const button1 = document.querySelector(".firstAnswer");
-  button1.addEventListener("click", function () {
-    alert("try again!");
-  });
+  button1.addEventListener("click", wrongAnswer);
 
   const button2 = document.querySelector(".secondAnswer");
-  button2.addEventListener("click", function () {
-    alert("try again!");
-  });
+  button2.addEventListener("click", wrongAnswer);
 
   const button3 = document.querySelector(".thirdAnswer");
-  button3.addEventListener("click", function () {
-    alert("try again!");
-  })
+  button3.addEventListener("click", wrongAnswer);
 
   const button4 = document.querySelector(".fourthAnswer");
-  button4.addEventListener("click", poseQuestion1);
+  button4.addEventListener("click", correctAnswer);
+
+  function wrongAnswer() {
+    let wrongMsg = document.querySelector(".theAnswers");
+    wrongMsg.setAttribute("style", "font-size:120px; color:red;");
+    wrongMsg.innerText = "Wrong!";
+    timerCount = timerCount - 10;
+    setTimeout(() => {
+      endGame();
+    }, 550);
+  }
+
+  function correctAnswer() {
+    let correctMsg = document.querySelector(".theAnswers");
+    correctMsg.setAttribute("style", "font-size:120px; color:green;");
+    correctMsg.innerText = "Correct!";
+    setTimeout(() => {
+      endGame();
+    }, 550);
+  }
+}
+
+// End of game --------------------------------------------------------------------
+
+function endGame() {
+  questionEl.setAttribute("style", "font-size:35px; font-weight:bold;");
+  questionEl.innerHTML = "";
+
+  const theQuestion = document.createElement("div");
+  questionEl.append(theQuestion);
+  theQuestion.className = "theQuestion";
+  theQuestion.textContent = "All done, thanks for playing!";
 }
 
 function startTimer() {
@@ -331,10 +402,12 @@ function startTimer() {
 
     if (timerCount === 0) {
       clearInterval(timer);
-      loseGame();
+      endGame();
     }
   }, 1000);
 }
 
+
 startButton.addEventListener("click", startGame);
+
 
