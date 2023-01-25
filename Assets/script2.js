@@ -1,8 +1,9 @@
 const timerEl = document.querySelector(".timer-text");
 const startButton = document.querySelector(".start-button");
 const questionEl = document.querySelector(".quiz-area");
+const myInitials = document.querySelector(".initVal");
+const highScoresTxt = document.querySelector(".high-scores");
 
-let myInitials = "";
 let timer;
 let timerCount = 75;
 let highScore = 0;
@@ -52,9 +53,10 @@ function startGame() {
   poseQuestions();
 }
 
+//random  question generator
+
 function poseQuestions() {
   let currentQuestion = "";
-
 
   for (let index = 0; index < quizQuestions.length; index++) {
     const random = Math.floor(Math.random() * quizQuestions.length);
@@ -70,6 +72,8 @@ function poseQuestions() {
   const answers = document.createElement("div");
   questionEl.append(answers);
   answers.className = "theAnswers";
+
+  //buttons for asnwers
 
   let button1 = document.createElement("button");
   button1.className = "btn1";
@@ -123,9 +127,14 @@ function poseQuestions() {
     }
   };
 
+  //wrong answer function!
+
   function wrongAnswer() {
     let wrongMsg = document.querySelector(".theAnswers");
-    wrongMsg.setAttribute("style", "font-size:120px; color:red; border-top: red solid 4px; margin-top: 30px;");
+    wrongMsg.setAttribute(
+      "style",
+      "font-size:120px; color:red; border-top: red solid 4px; margin-top: 30px;"
+    );
     wrongMsg.innerText = "Wrong!";
     timerCount = timerCount - 10;
     setTimeout(() => {
@@ -133,11 +142,16 @@ function poseQuestions() {
     }, 550);
   }
 
+  //correct answer function!
+
   function correctAnswer() {
     let correctMsg = document.querySelector(".theAnswers");
-    correctMsg.setAttribute("style", "font-size:120px; color:green; border-top: green solid 4px; margin-top: 30px");
+    correctMsg.setAttribute(
+      "style",
+      "font-size:120px; color:green; border-top: green solid 4px; margin-top: 30px"
+    );
     correctMsg.innerText = "Correct!";
-    highScore++
+    highScore++;
     setTimeout(() => {
       poseQuestions();
     }, 550);
@@ -148,6 +162,8 @@ function poseQuestions() {
     endGame();
   }
 }
+
+//The timer
 
 function startTimer() {
   timer = setInterval(function () {
@@ -160,7 +176,10 @@ function startTimer() {
   }, 1000);
 }
 
+//end of game page
+
 function endGame() {
+  let initText = "";
   timerEl.innerHTML = 0;
   questionEl.innerHTML = "";
 
@@ -174,9 +193,38 @@ function endGame() {
   enterInitMsg.className = "enterInitMsg";
   enterInitMsg.textContent = "Your final score is: " + highScore;
 
-  const enterInit = document.createElement("input");
+  const enterInit = document.createElement("form");
   theQuestion.append(enterInit);
   enterInit.className = "initials-form";
+
+  const initBox = document.createElement("label");
+  enterInit.append(initBox);
+  initBox.className = "initBox";
+  initBox.textContent = "Enter your initials: ";
+
+  const initVal = document.createElement("input");
+  initBox.append(initVal);
+  initBox.className = "initVal";
+
+  const submitInit = document.createElement("button");
+  initBox.append(submitInit);
+  submitInit.className = "submitButton";
+  submitInit.textContent = "Submit";
+
+  const initList = document.createElement("ul");
+  theQuestion.append(initList);
+  initList.className = "initial-list";
+
+  //submit initials button
+
+  submitInit.addEventListener("click", function (event) {
+    event.preventDefault();
+    let theQuestion = document.querySelector(".theQuestion");
+    initList.textContent = initVal.value.trim() + " High Score = " + highScore;
+    initList.setAttribute("style", "font-size: 16px;");
+  });
 }
 
+//start button event and high scores link
 startButton.addEventListener("click", startGame);
+highScoresTxt.addEventListener("click", endGame);
